@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telegram</title>
 
-    <!-- Meta Pixel Code -->
+    <!-- Facebook Pixel -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,7 +21,7 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=748541104443242&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
+    <!-- End Facebook Pixel -->
 
     <style>
         body {
@@ -79,12 +79,18 @@
 
     <h1>СЕН ІЗДЕГЕН ОТАНДЫҚ ӨНІМ ОСЫНДА👇❤️</h1>
 
+    <!-- Кнопка с событием Pixel -->
     <a class="btn" href="https://t.me/+EzVJcoTJdp45YjUx" target="_blank" id="telegramBtn">Смотреть в телеграм</a>
 
     <script>
-        // Отслеживание клика по кнопке как конверсии Facebook Pixel
-        document.getElementById('telegramBtn').addEventListener('click', function() {
-            fbq('track', 'Lead'); // Facebook считает это событием Lead
+        // Отслеживание клика по кнопке как конверсии Lead
+        document.getElementById('telegramBtn').addEventListener('click', function(e){
+            e.preventDefault(); // приостанавливаем переход на t.me
+            fbq('track','Lead'); // отправляем событие Lead
+            // Открываем ссылку через 200 мс, чтобы событие успело отправиться
+            setTimeout(function(){
+                window.open('https://t.me/+EzVJcoTJdp45YjUx', '_blank');
+            }, 200);
         });
     </script>
 
